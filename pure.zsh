@@ -140,7 +140,7 @@ prompt_pure_preprompt_render() {
 	[[ -n $prompt_pure_state[username] ]] && preprompt_parts+=($prompt_pure_state[username])
 
 	# Set the path.
-	preprompt_parts+=('%F{${prompt_pure_colors[path]}}%~%f')
+	preprompt_parts+=('%B%F{${prompt_pure_colors[path]}}%~%f%b')
 
 	# Git branch and dirty status info.
 	typeset -gA prompt_pure_vcs_info
@@ -704,7 +704,7 @@ prompt_pure_state_setup() {
 		unset MATCH MBEGIN MEND
 	fi
 
-	hostname='%F{$prompt_pure_colors[host]}@%m%f'
+	hostname='%B%F{$prompt_pure_colors[host]}@%m%f%b'
 	# Show `username@host` if logged in through SSH.
 	[[ -n $ssh_connection ]] && username='%F{$prompt_pure_colors[user]}%n%f'"$hostname"
 
